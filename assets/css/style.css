@@ -2,12 +2,34 @@
 body html {
     height: 100%;
 }
-
+header{
+    display: flex;
+    justify-content: space-between;
+}
 body{
-    color:crimson;
+    background-color:crimson;
     background-position: center;
+    text-align: center;
+}
+h1{
+    padding-top: 70px;
+    padding-bottom: 40px;
 }
 
-body{
-    align-content: center;
-}
+button {
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  li{
+    list-style: none;
+  }
