@@ -2,14 +2,20 @@
 
 
 var btnEl = window.document.querySelector(".list-answers");
-var question = document.querySelector(".questionAsked");
+var clickedAnswerEl = window.document.querySelector(".answers-area");
+var questionSpace = document.querySelector(".questionAsked");
 var areaForQuestions = document.getElementById("answers-area")
 //removing existing from main page
 var startQuizBtnEl = document.getElementById("list-replace");
 var existingQuestion = document.getElementById("replace");
 // VAR FOR ALL QUESTIONS AND ANSWERS//
+var answerA="";
+var answerB="";
+var answerC="";
+var answerD="";
+var questionRound = 0
 
-var quizQuestions = [{
+var quizQuestionsEl = [{
     question: "How many elements can you apply an 'ID' attribute to?",
     choiceA: "As many as you want",
     choiceB: "3",
@@ -57,10 +63,29 @@ var quizQuestions = [{
     choiceB: "src",
     choiceC: "class",
     choiceD: "index",
-    correctAnswer: "b"}, 
+    correctAnswer: "b"}
 ];
 
+function generateQuizQuestion(){
+  
+    var currentQuestion = quizQuestionsEl[questionRound];
+    questionSpace.innerHTML = currentQuestion.question;
+    answerA.innerHTML = currentQuestion.choiceA;
+    answerB.innerHTML = currentQuestion.choiceB;
+    answerC.innerHTML = currentQuestion.choiceC;
+    answerD.innerHTML = currentQuestion.choiceD;
 
+    clickingAnswers();
+};
+
+function clickingAnswers (){
+ 
+    
+
+
+
+
+};
 // INSERTING BUTTONS TO THE PAGE 
 var  insertingListButtonsEl =function(){
   
@@ -71,43 +96,48 @@ var  insertingListButtonsEl =function(){
  startQuizBtnEl.remove();
 
  //introducing Questions
- var newQuestionEl = document.createElement("h1");
+ newQuestionEl = document.createElement("h1");
  newQuestionEl.textContent=("What is your name?");
  newQuestionEl.className=("individual-questions");
- question.appendChild(newQuestionEl);
+ questionSpace.appendChild(newQuestionEl);
  // INTRODUCING THE FOUR OPTIONS BUTTONS///
- var answerA = document.createElement("li");
+ answerA = document.createElement("li");
  answerA.textContent= (" sdaflkasdlfalsdflasdkflaskdflkasldk                 asldfasldfklsadf ");
  answerA.className=("answers-area");
+ answerA.setAttribute('id','1');
  areaForQuestions.appendChild(answerA);
 
- var answerB = document.createElement("li");
+ answerB = document.createElement("li");
  answerB.textContent= ("this is answer B");
  answerB.className=("answers-area");
+ answerB.setAttribute('id','2')
  areaForQuestions.appendChild(answerB);
 
- var answerC = document.createElement("li");
+ answerC = document.createElement("li");
  answerC.textContent= ("this is answer C");
  answerC.className=("answers-area");
+ answerC.setAttribute('id','3');
  areaForQuestions.appendChild(answerC);
 
- var answerD = document.createElement("li");
+ answerD = document.createElement("li");
  answerD.textContent= ("this is answer D");
  answerD.className=("answers-area");
+ answerD.setAttribute('id','4');
  areaForQuestions.appendChild(answerD);
  
+ generateQuizQuestion();
+
+
 }
 
-// var insertQuestionsEl= quizQuestions[]{
+
+// var insertQuestionsEl= function (){
 //     for(i=0; i<10; i++){
-//         console.log(quizQuestions[i]);
-//     }]
+//         console.log(quizQuestions);
+//     }
+// };
 
-
-
+// insertQuestionsEl();
 
 btnEl.addEventListener("click", insertingListButtonsEl);
-
-// ("click", function(){
-//     alert("buttonclicked");
-// });
+clickedAnswerEl.addEventListener("click", insertingListButtonsEl);
