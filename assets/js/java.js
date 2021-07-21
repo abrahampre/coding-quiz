@@ -2,7 +2,7 @@
 
 
 var btnEl = window.document.querySelector(".list-answers");
-var clickedAnswerEl = window.document.querySelector(".answers-area");
+var clickedAnswerEl = window.document.querySelector(".indiv-answers-area");
 var questionSpace = document.querySelector(".questionAsked");
 var areaForQuestions = document.getElementById("answers-area")
 //removing existing from main page
@@ -75,17 +75,11 @@ function generateQuizQuestion(){
     answerC.innerHTML = currentQuestion.choiceC;
     answerD.innerHTML = currentQuestion.choiceD;
 
-    clickingAnswers();
-};
-
-function clickingAnswers (){
- 
     
 
-
-
-
 };
+
+
 // INSERTING BUTTONS TO THE PAGE 
 var  insertingListButtonsEl =function(){
   
@@ -103,41 +97,44 @@ var  insertingListButtonsEl =function(){
  // INTRODUCING THE FOUR OPTIONS BUTTONS///
  answerA = document.createElement("li");
  answerA.textContent= (" sdaflkasdlfalsdflasdkflaskdflkasldk                 asldfasldfklsadf ");
- answerA.className=("answers-area");
+ answerA.className=("indiv-answers-area");
  answerA.setAttribute('id','1');
  areaForQuestions.appendChild(answerA);
 
  answerB = document.createElement("li");
  answerB.textContent= ("this is answer B");
- answerB.className=("answers-area");
+ answerB.className=("indiv-answers-area");
  answerB.setAttribute('id','2')
  areaForQuestions.appendChild(answerB);
 
  answerC = document.createElement("li");
  answerC.textContent= ("this is answer C");
- answerC.className=("answers-area");
+ answerC.className=("indiv-answers-area");
  answerC.setAttribute('id','3');
  areaForQuestions.appendChild(answerC);
 
  answerD = document.createElement("li");
  answerD.textContent= ("this is answer D");
- answerD.className=("answers-area");
+ answerD.className=("indiv-answers-area");
  answerD.setAttribute('id','4');
  areaForQuestions.appendChild(answerD);
  
  generateQuizQuestion();
 
-
+ 
+ clickedAnswerEl.addEventListener("click", clickingAnswers);
 }
 
+function clickingAnswers (){
+    console.log(1)
+       
+   
+   
+   
+   
+   };
 
-// var insertQuestionsEl= function (){
-//     for(i=0; i<10; i++){
-//         console.log(quizQuestions);
-//     }
-// };
 
-// insertQuestionsEl();
 
 btnEl.addEventListener("click", insertingListButtonsEl);
-clickedAnswerEl.addEventListener("click", insertingListButtonsEl);
+clickedAnswerEl.addEventListener("click", clickingAnswers);
