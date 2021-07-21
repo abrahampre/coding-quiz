@@ -2,7 +2,7 @@
 
 
 var btnEl = window.document.querySelector(".list-answers");
-var clickedAnswerEl = window.document.querySelector(".indiv-answers-area");
+var clickedAnswerEl = ""; //window.document.querySelector(".indiv-answers-area");
 var questionSpace = document.querySelector(".questionAsked");
 var areaForQuestions = document.getElementById("answers-area")
 //removing existing from main page
@@ -121,11 +121,12 @@ var  insertingListButtonsEl =function(){
  
  generateQuizQuestion();
 
- 
+ clickedAnswerEl =window.document.querySelector(".indiv-answers-area");
  clickedAnswerEl.addEventListener("click", clickingAnswers);
 }
 
-function clickingAnswers (){
+function clickingAnswers (insertingListButtonsEl){
+    // if (clickedAnswerEl.id===( quizQuestionsEl[questionRound][correctAnswer]));
     console.log(1)
        
    
@@ -137,4 +138,5 @@ function clickingAnswers (){
 
 
 btnEl.addEventListener("click", insertingListButtonsEl);
-clickedAnswerEl.addEventListener("click", clickingAnswers);
+
+// clickedAnswerEl.addEventListener("click", clickingAnswers);
