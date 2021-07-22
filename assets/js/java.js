@@ -13,7 +13,9 @@ var answerA="";
 var answerB="";
 var answerC="";
 var answerD="";
+var answerSelected = "";
 var questionRound = 0
+var answer
 
 var quizQuestionsEl = [{
     question: "How many elements can you apply an 'ID' attribute to?",
@@ -21,49 +23,49 @@ var quizQuestionsEl = [{
     choiceB: "3",
     choiceC: "1",
     choiceD: "128",
-    correctAnswer: "c"},
+    correctAnswer: "3"},
   {
     question: "What does DOM stand for?",
     choiceA: "Document Object Model",
     choiceB: "Display Object Management",
     choiceC: "Digital Ordinance Model",
     choiceD: "Desktop Oriented Mode",
-    correctAnswer: "a"},
+    correctAnswer: "1"},
    {
     question: "What is used primarily to add styling to a web page?",
     choiceA: "HTML",
     choiceB: "CSS",
     choiceC: "Python",
     choiceD: "React.js",
-    correctAnswer: "b"},
+    correctAnswer: "2"},
     {
     question: "What HTML tags are JavaScript code wrapped in?",
     choiceA: "&lt;div&gt;",
     choiceB: "&lt;link&gt;",
     choiceC: "&lt;head&gt;",
     choiceD: "&lt;script&gt;",
-    correctAnswer: "d"},
+    correctAnswer: "4"},
     {
     question: "When is localStorage data cleared?",
     choiceA: "No expiration time",
     choiceB: "On page reload",
     choiceC: "On browser close",
     choiceD: "On computer restart",
-    correctAnswer: "a"},  
+    correctAnswer: "1"},  
     {
     question: "What does WWW stand for?",
     choiceA: "Web World Workings",
     choiceB: "Weak Winter Wind",
     choiceC: "World Wide Web",
     choiceD: "Wendy Wants Waffles",
-    correctAnswer: "c"},
+    correctAnswer: "3"},
     {
     question: "What HTML attribute references an external JavaScript file?",
     choiceA: "href",
     choiceB: "src",
     choiceC: "class",
     choiceD: "index",
-    correctAnswer: "b"}
+    correctAnswer: "2"}
 ];
 
 function generateQuizQuestion(){
@@ -74,10 +76,9 @@ function generateQuizQuestion(){
     answerB.innerHTML = currentQuestion.choiceB;
     answerC.innerHTML = currentQuestion.choiceC;
     answerD.innerHTML = currentQuestion.choiceD;
-
-    
-
 };
+
+
 
 
 // INSERTING BUTTONS TO THE PAGE 
@@ -97,46 +98,110 @@ var  insertingListButtonsEl =function(){
  // INTRODUCING THE FOUR OPTIONS BUTTONS///
  answerA = document.createElement("li");
  answerA.textContent= (" sdaflkasdlfalsdflasdkflaskdflkasldk                 asldfasldfklsadf ");
- answerA.className=("indiv-answers-area");
+ answerA.className=("answers-a");
  answerA.setAttribute('id','1');
  areaForQuestions.appendChild(answerA);
 
  answerB = document.createElement("li");
  answerB.textContent= ("this is answer B");
- answerB.className=("indiv-answers-area");
+ answerB.className=("answers-b");
  answerB.setAttribute('id','2')
  areaForQuestions.appendChild(answerB);
 
  answerC = document.createElement("li");
  answerC.textContent= ("this is answer C");
- answerC.className=("indiv-answers-area");
+ answerC.className=("answers-c");
  answerC.setAttribute('id','3');
  areaForQuestions.appendChild(answerC);
 
  answerD = document.createElement("li");
- answerD.textContent= ("this is answer D");
- answerD.className=("indiv-answers-area");
+ answerD.textContent= ("answers-d");
+ answerD.className=("answers-d");
  answerD.setAttribute('id','4');
  areaForQuestions.appendChild(answerD);
- 
+ debugger;
  generateQuizQuestion();
 
- clickedAnswerEl =window.document.querySelector(".indiv-answers-area");
- clickedAnswerEl.addEventListener("click", clickingAnswers);
-}
+ clickOnA =window.document.querySelector(".answers-a");
+ clickOnA.addEventListener("click", clickingAnswersA);
 
-function clickingAnswers (insertingListButtonsEl){
-    // if (clickedAnswerEl.id===( quizQuestionsEl[questionRound][correctAnswer]));
-    console.log(1)
-       
-   
-   
-   
-   
-   };
+ clickOnB =window.document.querySelector(".answers-b");
+ clickOnB.addEventListener("click", clickingAnswersB);
+
+ clickOnC =window.document.querySelector(".answers-c");
+ clickOnC.addEventListener("click", clickingAnswersC);
+
+ clickOnD =window.document.querySelector(".answers-d");
+ clickOnD.addEventListener("click", clickingAnswersD);
+ 
+    if (quizQuestionsEl[questionRound]["correctAnswer"] === answerSelected){
+        alert("correct answer!")
+    };
+
+};
+ 
+
+
+function obladi (){
+    debugger;
+    if (quizQuestionsEl[questionRound]["correctAnswer"] === answerSelected){
+        alert("correct answer!");
+    }else{
+        alert("wrong answer!!")
+    }
+};
 
 
 
+
+function clickingAnswersA (){
+    clickingAnswersA=2;
+    answerSelected = clickingAnswersA;
+    console.log(1);
+    if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+        alert("correct answer!")
+    }else{
+        alert("wrong answer!!")
+    }
+};
+
+function clickingAnswersB (){
+   clickingAnswersB = 3; 
+   answerSelected=clickingAnswersB;
+   console.log(2)
+   if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+    alert("correct answer!")
+    }else{
+    alert("wrong answer!!")
+    }
+};
+
+function clickingAnswersC (){
+    clickingAnswersC = 4; 
+    answerSelected = clickingAnswersC;
+    console.log(3);
+     if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+    alert("correct answer!")
+    }else{
+    alert("wrong answer!!")
+    }
+};
+
+function clickingAnswersD (){
+   clickingAnswersD = 5 
+   answerSelected=clickingAnswersD;
+   console.log(4)
+    if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+    alert("correct answer!")
+    }else{
+    alert("wrong answer!!")
+    }
+};
+
+function compareAnswerSelected (){
+    
+    if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+        alert("correct answer!")
+    }
+};
 btnEl.addEventListener("click", insertingListButtonsEl);
-
-// clickedAnswerEl.addEventListener("click", clickingAnswers);
