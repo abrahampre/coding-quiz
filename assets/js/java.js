@@ -21,9 +21,16 @@ function increaseQuestionRound  (){
     questionRound = questionRound+1;
 };
 
+// var seconds = document.getElementById("countdown").textContent;
+// var countdown = setInterval(function() {
+//     seconds--;
+//     document.getElementById("countdown").textContent = seconds;
+//     if (seconds <= 0) clearInterval(countdown);
+// }, 1000);
+
 var quizQuestionsEl = [{
     question: "How many elements can you apply an 'ID' attribute to?",
-    choiceA: "As mfany as you want",
+    choiceA: "As many as you want",
     choiceB: "3",
     choiceC: "1",
     choiceD: "128",
@@ -82,8 +89,81 @@ function generateQuizQuestion(){
     answerD.innerHTML = currentQuestion.choiceD;
 };
 
+function clickingAnswersA (){
+
+    clickingAnswersA=1;
+    answerSelected = clickingAnswersA;
+    console.log(1);
+    if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+        alert("correct answer!");
+        increaseQuestionRound();
+        generateQuizQuestion();
+        return(answerSelected = true);
+    }else{
+        alert("wrong answer!!");
+        increaseQuestionRound();
+        generateQuizQuestion();
+        return(answerSelected =false);
+    };
+
+};
+
+function clickingAnswersB (){
+
+   clickingAnswersB = 2; 
+   answerSelected=clickingAnswersB;
+   console.log(2)
+   if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+        alert("correct answer!");
+        increaseQuestionRound();
+        generateQuizQuestion();
+        return(answerSelected = true);
+    }else{
+        alert("wrong answer!!");
+        increaseQuestionRound();
+        generateQuizQuestion();
+        return(answerSelected =false);
+    };
+
+};
+
+function clickingAnswersC (){
+    clickingAnswersC = 3; 
+    answerSelected = clickingAnswersC;
+    console.log(3);
+     if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+    alert("correct answer!")
+    increaseQuestionRound();
+    generateQuizQuestion();
+    return(answerSelected = true);
+    }else{
+    alert("wrong answer!!")
+    increaseQuestionRound();
+    generateQuizQuestion();
+    return(answerSelected =false);
+    }
+};
+
+function clickingAnswersD (){
+   clickingAnswersD = 4;
+   answerSelected=clickingAnswersD;
+   console.log(4)
+    if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
+    alert("correct answer!")
+    increaseQuestionRound();
+    generateQuizQuestion();
+    return(answerSelected = true);
+    }else{
+    alert("wrong answer!!")
+    increaseQuestionRound();
+    generateQuizQuestion();
+    return(answerSelected =false);
+    }
+};
+
+
 // INSERTING BUTTONS TO THE PAGE 
-function insertingListButtonsEl (){
+function insertingListForButtonsSpaceEl (){
   
  
 
@@ -120,26 +200,10 @@ function insertingListButtonsEl (){
  answerD.className=("answers-d");
  answerD.setAttribute('id','4');
  areaForQuestions.appendChild(answerD);
- 
-//  generateQuizQuestion();
- 
-//  clickOnA =window.document.querySelector(".answers-a");
-//  clickOnA.addEventListener("click", clickingAnswersA);
-
-//  clickOnB =window.document.querySelector(".answers-b");
-//  clickOnB.addEventListener("click", clickingAnswersB);
-
-//  clickOnC =window.document.querySelector(".answers-c");
-//  clickOnC.addEventListener("click", clickingAnswersC);
-
-//  clickOnD =window.document.querySelector(".answers-d");
-//  clickOnD.addEventListener("click", clickingAnswersD);
- 
-
    
 };
 
-function pickingQuestions(_callback){
+function pickingQuestions(){
 
     clickOnA =window.document.querySelector(".answers-a");
     clickOnA.addEventListener("click", clickingAnswersA);
@@ -152,95 +216,25 @@ function pickingQuestions(_callback){
    
     clickOnD =window.document.querySelector(".answers-d");
     clickOnD.addEventListener("click", clickingAnswersD);
-    
-    function clickingAnswersA (){
-
-        clickingAnswersA=2;
-        answerSelected = clickingAnswersA;
-        console.log(1);
-        if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
-            alert("correct answer!");
-            increaseQuestionRound();
-            return(answerSelected = true);
-        }else{
-            alert("wrong answer!!");
-            increaseQuestionRound();
-            return(answerSelected =false);
-        };
-        
-    };
-    
-    function clickingAnswersB (){
-       clickingAnswersB = 3; 
-       answerSelected=clickingAnswersB;
-       console.log(2)
-       if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
-        alert("correct answer!");
-        increaseQuestionRound();
-        return(answerSelected = true);
-        }else{
-        alert("wrong answer!!");
-        increaseQuestionRound();
-        return(answerSelected =false);
-        }
-        
-    };
-    
-    function clickingAnswersC (){
-        clickingAnswersC = 4; 
-        answerSelected = clickingAnswersC;
-        console.log(3);
-         if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
-        alert("correct answer!")
-        increaseQuestionRound();
-        return(answerSelected = true);
-        }else{
-        alert("wrong answer!!")
-        increaseQuestionRound();
-        return(answerSelected =false);
-        }
-    };
-    
-    function clickingAnswersD (){
-       clickingAnswersD = 5 
-       answerSelected=clickingAnswersD;
-       console.log(4)
-        if (quizQuestionsEl[questionRound]["correctAnswer"] == answerSelected){
-        alert("correct answer!")
-        increaseQuestionRound();
-        return(answerSelected = true);
-        }else{
-        alert("wrong answer!!")
-        increaseQuestionRound();
-        return(answerSelected =false);
-        }
-    };
-
-
-  
 
 };
  
 
 
-
 var startQuiz = function (){
     
-    insertingListButtonsEl();
-
+    insertingListForButtonsSpaceEl();
+    // for (i=0; questionRound<=7;questionRound++){
+    // generateQuizQuestion();
+    // pickingQuestions ();
+    // }
+   
+// 
     generateQuizQuestion();
 
     pickingQuestions();
 
-    if(questionRound <=7 ){
-        debugger;
-        generateQuizQuestion ();
-    } else {
-        alert("end of game")
-    };
     
-
-
 };
 
 btnEl.addEventListener("click", startQuiz);

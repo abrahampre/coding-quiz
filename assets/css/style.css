@@ -17,6 +17,11 @@ h1{
     font-size: xx-large;
 }
 
+.questionArea .questionAsked{
+    font-size: xx-large;
+    color:black;
+}
+
 li{   
  
     margin: 5px;
