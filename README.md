@@ -13,3 +13,7 @@ Timer and score to be added later on the course.
 ## Deployment
 
 To deploy this project click on Start Quiz Button.
+
+https://abrahampre.github.io/coding-quiz/
+
+https://github.com/abrahampre/coding-quiz.git
